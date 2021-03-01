@@ -3,26 +3,49 @@
 const values = document.querySelectorAll('.value'),
       distances = document.querySelectorAll('[name=distance]');
 
-let corePace = 5 * 60 / 1000,  // seconds/meter
+let pace = 5 * 60 / 1000,  // seconds/meter
     distance,  // meters
-    pace,  // seconds/kilometer
     speed, //meters per second (1 / pace)
     time; // 
 
-function setCurrentDistance()  {
+function getDistance()  {
+    parseDistance();
     distance = +[...distances].filter(distance => distance.checked)[0].value;
-    time = distance * pace;
+    setTime(pace, distance);
+    // time = distance * pace;
 }
 
-function getPace() {
-    let m, s;
-    pace = corePace * 1000; //
-    console.log(`${Math.floor(pace / 60)}:${Math.floor(pace % 60)}`);
+function getPace()  {
+    pace = parsePace();
+    setSpeed(pace);
+    setTime(pace, distance);
 }
+
+function getSpeed() {
+    speed = parseSpeed();
+    setPace(pace);
+    setTime(pace, distance);
+}
+
+function getTime() {
+    time = parseTime();
+    setPace(time, distance);
+    setSpeed(time, distance);
+}
+
+function parsePace() {
+    
+}
+
+
+// function getPace() {
+//     let m, s;
+//     pace = corePace * 1000; //
+//     console.log(`${Math.floor(pace / 60)}:${Math.floor(pace % 60)}`);
+// }
 
 function bindListener(field) {
     field.addEventListener('input', () => {
-        setCurrentDistance();
         // console.log(field.value);
         console.log(distance);
         console.log(pace);

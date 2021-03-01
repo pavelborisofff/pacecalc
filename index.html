@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Running Pace Calculator</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <h1 class="header__heading">running pace calc</h1>
+            <p class="header__desc">Finally without any "calculate" button. Yeah!</p>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__container container">
+            <form action="" class="main__form form" id="calc">
+                <input type="hidden" name="csrf" value="1234:5ad02792a3285252e524ccadeeda3401">
+                <h3 class="main__header">Distance</h3>
+                <div class="form__distance distance flex">
+                    <input class="distance__1" type="radio" name="distance" value="1" id="1"><label class="distance__label label" for="1">1 km</label>
+                    <input class="distance__5" type="radio" name="distance" value="5" id="5"><label class="distance__label label" for="5">5 km</label>
+                    <input class="distance__10" type="radio" name="distance" value="10" id="10" checked><label class="distance__label label" for="10">10 km</label>
+                    <input class="distance__half" type="radio" name="distance" value="half" id="half"><label class="distance__label label" for="half">21.1 km</label>
+                    <input class="distance__full" type="radio" name="distance" value="full" id="full"><label class="distance__label label" for="full">42.2 km</label>
+                    <input class="distance__100" type="radio" name="distance" value="100" id="100"><label class="distance__label label" for="100">100 km</label>
+                </div>
+                <h3 class="main__header">Pace & Speed</h3>
+                <div class="form__speed speed flex">
+                    <div class="speed__block flex">
+                        <div class="speed__part part">
+                            <input class="speed__pace" type="text" name="pace_min" id="pace_min" maxlength="2">
+                            <label class="label" for="pace_min">MM</label>
+                        </div>
+                        <div class="speed__part part">
+                            <input class="speed__pace" type="text" name="pace_sec" id="pace_sec" maxlength="2">
+                            <label class="label" for="pace_sec">SS</label>
+                        </div>
+                    </div>
+                    <div class="speed__block flex">
+                        <div class="speed__part part">
+                            <input class="speed__vel" type="text" name="dec" id="dec" maxlength="2">
+                        </div>
+                        <div class="speed__part part">
+                            <input class="speed__vel" type="text" name="pts" id="pts" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+                <h3 class="main__header">Time</h3>
+                <div class="form__time time flex">
+                    <div class="time__part part">
+                        <input class="time__val" type="text" name="hour" id="hour" maxlength="2">
+                        <label class="label" for="hour">HH</label>
+                    </div>
+                    <div class="time__part part">
+                        <input class="time__val" type="text" name="min" id="min" maxlength="2">
+                        <label class="label" for="min">MM</label>
+                    </div>
+                    <div class="time__part part">
+                        <input class="time__val" type="text" name="sec" id="sec" maxlength="2">
+                        <label class="label" for="sec">SS</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

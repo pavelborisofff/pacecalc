@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    margin: 0;
+}
+
+a:focus {
+    outline: none !important
+}
+
+a:hover {
+    text-decoration: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0
+}
+
+p {
+    margin: 0
+}
+
+ul,
+li {
+    margin: 0;
+    list-style-type: none
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    vertical-align: top;
+}
+
+input {
+    display: block;
+    outline: none;
+    border: none;
+}
+
+textarea {
+    display: block;
+    outline: none
+}
+
+textarea:focus,
+input:focus {
+    border-color: transparent;
+}
+
+button {
+    outline: none !important;
+    border: none;
+    background: 0 0
+}
+
+button:hover {
+    cursor: pointer
+}
+
+
+select {
+    border: none;
+    text-align:center;
+    padding: 0;
+    width: 100%;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.select:focus {
+    outline: none;
+}
+
+label {
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+.reset-input,
+.reset-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.reset-input:focus,
+.reset-btn:focus {
+    outline: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0, 0, 0, 0)
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header__heading,
+.header__desc {
+    text-transform: capitalize;
+}
+
+.main__header {
+    font-size: 16px;
+    margin: 40px auto 20px;
+}
+
+.label {
+    font-size: 10px;
+}
+
+input {
+    background-color: palevioletred;
+}

@@ -1,80 +1,128 @@
 'use strict';
 
-const values = document.querySelectorAll('.value'),
-      distances = document.querySelectorAll('[name=distance]');
+const valueFields = document.querySelectorAll('.value'),
+      distanceFields = document.querySelectorAll('[name=distance]'),
+      paceFields = document.querySelectorAll('[name=pace]'),
+      speedFields = document.querySelectorAll('[name=speed]'),
+      timeFields = document.querySelectorAll('[name=time]');
 
-let pace = 5 * 60 / 1000,  // seconds/meter
-    distance,  // meters
-    speed, //meters per second (1 / pace)
-    time; // 
+let pace = 5 * 60 / 1000,  // seconds per meter
+    distance = getDistance(),  // meters
+    speed = 1 / pace, //meters per second (1 / pace)
+    time = pace * distance; // seconds
 
-function getDistance()  {
-    parseDistance();
-    distance = +[...distances].filter(distance => distance.checked)[0].value;
-    setTime(pace, distance);
-    // time = distance * pace;
+function setMaxLength(value, l = 2) {
+    return (value > 9) ? value : '0'.repeat(l - 1) + value;
 }
 
-function getPace()  {
-    pace = parsePace();
-    setSpeed(pace);
-    setTime(pace, distance);
+function setPace(field) {
+    switch (field.id) {
+        case 'pace_min':
+            field.value = setMaxLength(
+                Math.floor(pace * 1000 / 60)
+            );
+            break;
+        case 'pace_sec':
+            field.value = setMaxLength(
+                Math.floor(pace * 1000 % 60)
+            );
+            break;
+    }
 }
 
-function getSpeed() {
-    speed = parseSpeed();
-    setPace(pace);
-    setTime(pace, distance);
+function setSpeed(field) {
+    switch (field.id) {
+        case 'dec':
+            field.value = setMaxLength(
+                Math.floor(speed * 60 * 60 / 1000)
+            );
+            break;
+        case 'pts':
+            field.value = setMaxLength(
+                Math.floor(speed * 60 * 60 % 1000, 3)
+            );
+            break;
+    }
 }
 
-function getTime() {
-    time = parseTime();
-    setPace(time, distance);
-    setSpeed(time, distance);
+function setTime(field) {
+    switch (field.id) {
+        case 'hour':
+            field.value = setMaxLength(
+                Math.floor(time / (60 * 60))
+            );
+            break;
+        case 'min':
+            field.value = setMaxLength(
+                Math.floor((time % (60 * 60)) / 60)
+            );
+            break;
+        case 'sec':
+            field.value = setMaxLength(
+                time % 60
+            );
+            break;
+    }
 }
 
-function parsePace() {
-
-}
-
-
-// function getPace() {
-//     let m, s;
-//     pace = corePace * 1000; //
-//     console.log(`${Math.floor(pace / 60)}:${Math.floor(pace % 60)}`);
-// }
-
-function bindListener(field) {
-    field.addEventListener('input', (event) => {
-        console.log(event.target.value);
-        console.log(event.target.name);
-        console.log("data-time" in event.target.attributes);
-        // console.log(field.value);
-        // console.log(distance);
-        // console.log(pace);
+function setValues() {
+    valueFields.forEach(field => {
+        switch (field.name) {
+            case 'pace':
+                setPace(field);
+                break;
+            case 'speed':
+                setSpeed(field);
+                break;
+            case 'time':
+                setTime(field);
+                break;
+        }
     });
 }
 
-values.forEach(field => {
+function getDistance()  {
+    return +[...distanceFields].filter(distance => distance.checked)[0].value;
+}
+
+function bindListener(field) {
+    field.addEventListener('input', (event) => {
+        switch (event.target.name) {
+            case 'distance':
+                distance = getDistance();
+                speed = 1 / pace;
+                time = Math.ceil(pace * distance);
+                break;
+            case 'pace':
+                pace = getPace();
+                speed = 1 / pace;
+                time = Math.ceil(pace * distance);
+                break;
+            case 'speed':
+                speed = getSpeed();
+                pace = 1 / speed;
+                time = Math.ceil(pace * distance);
+                break;
+            case 'time':
+                time = getTime();
+                pace = time / distance;
+                break;
+            default:
+                console.log(event.target.attributes[0]);
+        }
+
+        setValues();
+    });
+}
+
+valueFields.forEach(field => {
     bindListener(field);
 });
 
 // init
-setCurrentDistance();
+getDistance();
+setValues();
 
-// let distance = distances.filter(function(field) {
-//     if (field.checked) {
-//         return field.value;
-//     }
-// });
-
-// function getDistance() {
-//     distances.forEach(radio => {
-//         if (radio.checked) {
-//             distance = +radio.value;
-//         } 
-//     });
-// }
 
 
 

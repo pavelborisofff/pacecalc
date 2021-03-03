@@ -22,46 +22,46 @@
                 <input type="hidden" name="csrf" value="1234:5ad02792a3285252e524ccadeeda3401">
                 <h3 class="main__header">Distance</h3>
                 <div class="form__distance distance flex">
-                    <input class="distance__1 distance__value value" type="radio" name="distance" value="1000" id="1"><label class="distance__label label" for="1">1 km</label>
-                    <input class="distance__5 distance__value value" type="radio" name="distance" value="5000" id="5"><label class="distance__label label" for="5">5 km</label>
-                    <input class="distance__10 distance__value value" type="radio" name="distance" value="10000" id="10" checked><label class="distance__label label" for="10">10 km</label>
-                    <input class="distance__half distance__value value" type="radio" name="distance" value="21097.5" id="half"><label class="distance__label label" for="half">21.1 km</label>
-                    <input class="distance__full distance__value value" type="radio" name="distance" value="42195" id="full"><label class="distance__label label" for="full">42.2 km</label>
-                    <input class="distance__100 distance__value value" type="radio" name="distance" value="100000" id="100"><label class="distance__label label" for="100">100 km</label>
+                    <input data-dist class="distance__1 distance__value value" type="radio" name="distance" value="1000" id="1"><label class="distance__label label" for="1">1 km</label>
+                    <input data-dist class="distance__5 distance__value value" type="radio" name="distance" value="5000" id="5"><label class="distance__label label" for="5">5 km</label>
+                    <input data-dist class="distance__10 distance__value value" type="radio" name="distance" value="10000" id="10" checked><label class="distance__label label" for="10">10 km</label>
+                    <input data-dist class="distance__half distance__value value" type="radio" name="distance" value="21097.5" id="half"><label class="distance__label label" for="half">21.1 km</label>
+                    <input data-dist class="distance__full distance__value value" type="radio" name="distance" value="42195" id="full"><label class="distance__label label" for="full">42.2 km</label>
+                    <input data-dist class="distance__100 distance__value value" type="radio" name="distance" value="100000" id="100"><label class="distance__label label" for="100">100 km</label>
                 </div>
                 <h3 class="main__header">Pace & Speed</h3>
                 <div class="form__speed speed flex">
                     <div class="speed__block flex">
                         <div class="speed__part part pace">
-                            <input class="speed__pace pace__value value" type="text" name="pace_min" id="pace_min" maxlength="2">
+                            <input data-pace class="speed__pace pace__value value" type="text" name="pace" id="pace_min" maxlength="2">
                             <label class="label" for="pace_min">MM</label>
                         </div>
                         <div class="speed__part part pace">
-                            <input class="speed__pace pace__value value" type="text" name="pace_sec" id="pace_sec" maxlength="2">
+                            <input data-pace class="speed__pace pace__value value" type="text" name="pace" id="pace_sec" maxlength="2">
                             <label class="label" for="pace_sec">SS</label>
                         </div>
                     </div>
                     <div class="speed__block flex">
                         <div class="speed__part part vel">
-                            <input class="speed__vel vel__value value" type="text" name="dec" id="dec" maxlength="2">
+                            <input data-speed class="speed__vel vel__value value" type="text" name="speed" id="dec" maxlength="2">
                         </div>
                         <div class="speed__part part">
-                            <input class="speed__vel vel__value value" type="text" name="pts" id="pts" maxlength="2">
+                            <input data-speed class="speed__vel vel__value value" type="text" name="speed" id="pts" maxlength="3">
                         </div>
                     </div>
                 </div>
                 <h3 class="main__header">Time</h3>
                 <div class="form__time time flex">
                     <div class="time__part part">
-                        <input data-time class="time__val value" type="text" name="hour" id="hour" maxlength="2">
+                        <input data-time class="time__val value" type="text" name="time" id="hour" maxlength="2">
                         <label class="label" for="hour">HH</label>
                     </div>
                     <div class="time__part part">
-                        <input data-time class="time__val value" type="text" name="min" id="min" maxlength="2">
+                        <input data-time class="time__val value" type="text" name="time" id="min" maxlength="2">
                         <label data-time class="label" for="min">MM</label>
                     </div>
                     <div class="time__part part">
-                        <input data-time class="time__val value" type="text" name="sec" id="sec" maxlength="2">
+                        <input data-time class="time__val value" type="text" name="time" id="sec" maxlength="2">
                         <label class="label" for="sec">SS</label>
                     </div>
                 </div>

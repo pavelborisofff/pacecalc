@@ -34,7 +34,7 @@ function getTime() {
 }
 
 function parsePace() {
-    
+
 }
 
 
@@ -45,10 +45,13 @@ function parsePace() {
 // }
 
 function bindListener(field) {
-    field.addEventListener('input', () => {
+    field.addEventListener('input', (event) => {
+        console.log(event.target.value);
+        console.log(event.target.name);
+        console.log("data-time" in event.target.attributes);
         // console.log(field.value);
-        console.log(distance);
-        console.log(pace);
+        // console.log(distance);
+        // console.log(pace);
     });
 }
 

@@ -21,7 +21,7 @@ function getPace() {
 }
 
 function getSpeed() {
-    return parseFloat(speedFields[0].value + paceFields[1].value) * 1000 / (60 * 60);
+    return parseFloat(speedFields[0].value + '.' + paceFields[1].value) * 1000 / (60 * 60);
 }
 
 function getTime() {

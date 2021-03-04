@@ -21,7 +21,7 @@ function getPace() {
 }
 
 function getSpeed() {
-    return parseFloat(speedFields[0].value + '.' + paceFields[1].value) * 1000 / (60 * 60);
+    return (speedFields[0].value * 1000 + speedFields[1].value * 1) / (60 * 60);
 }
 
 function getTime() {
@@ -46,14 +46,18 @@ function setPace(field) {
 function setSpeed(field) {
     switch (field.id) {
         case 'dec':
+          
             field.value = setMaxLength(
-                Math.floor(speed * 60 * 60 / 1000)
+                Math.floor(speed * (60 * 60) / 1000)
             );
+            console.log('dec: ', speed * 3600, field.value);
             break;
         case 'pts':
             field.value = setMaxLength(
-                Math.floor(speed * 60 * 60 % 1000, 3)
+                Math.floor(speed * (60 * 60) % 1000),
+                3
             );
+            console.log('pts: ', speed * 3600, field.value);
             break;
     }
 }
@@ -112,6 +116,7 @@ function bindListener(field) {
                 time = Math.ceil(pace * distance);
                 break;
             case 'speed':
+                console.log(field.value);
                 speed = getSpeed();
                 pace = 1 / speed;
                 time = Math.ceil(pace * distance);
@@ -135,9 +140,3 @@ valueFields.forEach(field => {
 // init
 getDistance();
 setValues();
-
-
-
-
-
-

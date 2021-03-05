@@ -28,41 +28,41 @@
                     <input data-dist class="distance__half distance__value value" type="radio" name="distance" value="21097.5" id="half"><label class="distance__label label" for="half">21.1 km</label>
                     <input data-dist class="distance__full distance__value value" type="radio" name="distance" value="42195" id="full"><label class="distance__label label" for="full">42.2 km</label>
                     <input data-dist class="distance__100 distance__value value" type="radio" name="distance" value="100000" id="100"><label class="distance__label label" for="100">100 km</label>
-                    <input data-dist class="distance__self distance__value value" type="number" name="distance" value="0" id="self" min="0" max="999" size="3"><label class="distance__label label" for="self">Custom</label>
+                    <input data-dist class="distance__self distance__value value" type="number" name="distance" value="0" id="self" min="0" max="999" size="3" maxlength="5" pattern="\d*"><label class="distance__label label" for="self">Custom</label>
                 </div>
                 <h3 class="main__header">Pace & Speed</h3>
                 <div class="form__speed speed flex">
                     <div class="speed__block flex">
                         <div class="speed__part part pace">
-                            <input data-pace class="speed__pace pace__value value" type="number" name="pace" id="pace_min" maxlength="2" min="0" max="99" size="2">
+                            <input data-pace class="speed__pace pace__value value" type="number" name="pace" id="pace_min" maxlength="2" min="0" max="99" size="2" pattern="\d*">
                             <label class="label" for="pace_min">MM</label>
                         </div>
                         <div class="speed__part part pace">
-                            <input data-pace class="speed__pace pace__value value" type="number" name="pace" id="pace_sec" maxlength="2" min="0" max="59" size="2">
+                            <input data-pace class="speed__pace pace__value value" type="number" name="pace" id="pace_sec" maxlength="2" min="0" max="59" size="2" pattern="\d*">
                             <label class="label" for="pace_sec">SS</label>
                         </div>
                     </div>
                     <div class="speed__block flex">
                         <div class="speed__part part vel">
-                            <input data-speed class="speed__vel vel__value value" type="number" name="speed" id="dec" maxlength="2" min="0" max="45" size="2">
+                            <input data-speed class="speed__vel vel__value value" type="number" name="speed" id="dec" maxlength="2" min="0" max="45" size="2" pattern="\d*">
                         </div>
                         <div class="speed__part part">
-                            <input data-speed class="speed__vel vel__value value" type="number" name="speed" id="pts" maxlength="3" min="0" max="99" size="2">
+                            <input data-speed class="speed__vel vel__value value" type="number" name="speed" id="pts" maxlength="3" min="0" max="99" size="2" pattern="\d*">
                         </div>
                     </div>
                 </div>
                 <h3 class="main__header">Time</h3>
                 <div class="form__time time flex">
                     <div class="time__part part">
-                        <input data-time class="time__val value" type="number" name="time" id="hour" maxlength="2" min="0" max="99" size="2">
+                        <input data-time class="time__val value" type="number" name="time" id="hour" maxlength="2" min="0" max="99" size="2" pattern="\d*">
                         <label class="label" for="hour">HH</label>
                     </div>
                     <div class="time__part part">
-                        <input data-time class="time__val value" type="number" name="time" id="min" maxlength="2" min="0" max="59" size="2">
+                        <input data-time class="time__val value" type="number" name="time" id="min" maxlength="2" min="0" max="59" size="2" pattern="\d*">
                         <label data-time class="label" for="min">MM</label>
                     </div>
                     <div class="time__part part">
-                        <input data-time class="time__val value" type="number" name="time" id="sec" maxlength="2" min="0" max="59" size="2">
+                        <input data-time class="time__val value" type="number" name="time" id="sec" maxlength="2" min="0" max="59" size="2" pattern="\d*">
                         <label class="label" for="sec">SS</label>
                     </div>
                 </div>

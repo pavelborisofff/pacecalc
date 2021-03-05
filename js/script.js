@@ -1,10 +1,11 @@
 'use strict';
 
 const valueFields = document.querySelectorAll('.value'),
-      distanceFields = document.querySelectorAll('[name=distance]'),
-      paceFields = document.querySelectorAll('[name=pace]'),
-      speedFields = document.querySelectorAll('[name=speed]'),
-      timeFields = document.querySelectorAll('[name=time]');
+    distanceFields = document.querySelectorAll('[name=distance]'),
+    customDistanceField = document.querySelector('[id=self]'),
+    paceFields = document.querySelectorAll('[name=pace]'),
+    speedFields = document.querySelectorAll('[name=speed]'),
+    timeFields = document.querySelectorAll('[name=time]');
 
 let pace = 5 * 60 / 1000,  // seconds per meter
     distance = getDistance(),  // meters
@@ -46,18 +47,15 @@ function setPace(field) {
 function setSpeed(field) {
     switch (field.id) {
         case 'dec':
-          
             field.value = setMaxLength(
                 Math.floor(speed * (60 * 60) / 1000)
             );
-            console.log('dec: ', speed * 3600, field.value);
             break;
         case 'pts':
             field.value = setMaxLength(
                 Math.floor(speed * (60 * 60) % 1000),
                 3
             );
-            console.log('pts: ', speed * 3600, field.value);
             break;
     }
 }
@@ -98,15 +96,15 @@ function setValues() {
     });
 }
 
-function getDistance()  {
+function getDistance() {
     return +[...distanceFields].filter(distance => distance.checked)[0].value;
 }
 
-function bindListener(field) {
+function bindInputListener(field) {
     field.addEventListener('input', (event) => {
         switch (event.target.name) {
             case 'distance':
-                distance = getDistance();
+                distance = (event.target.id !== 'self') ? getDistance() : getDistance() * 1000;
                 speed = 1 / pace;
                 time = Math.ceil(pace * distance);
                 break;
@@ -133,8 +131,16 @@ function bindListener(field) {
     });
 }
 
+customDistanceField.onfocus = function() {
+    console.log(this);
+    [...distanceFields].filter(distance => distance.checked)[0].checked = false;
+    this.checked = true;
+};
+
 valueFields.forEach(field => {
-    bindListener(field);
+    bindInputListener(field);
+    speed = 1 / pace;
+    time = Math.ceil(pace * distance);
 });
 
 // init
